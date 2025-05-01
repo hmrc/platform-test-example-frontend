@@ -16,8 +16,6 @@
 
 package pages
 
-import play.api.libs.json.JsPath
-
 case object IndexPage extends Page {
 
 
