@@ -31,32 +31,11 @@ class KeepAliveController @Inject()(
                                      getData: DataRetrievalAction,
                                      sessionRepository: SessionRepository
                                    )(implicit ec: ExecutionContext) extends FrontendBaseController {
-
-//  def keepAlive(): Action[AnyContent] = (identify andThen getData).async {
-//    implicit request =>
-//      request.userAnswers
-//        .map {
-//          answers =>
-//            sessionRepository.keepAlive(answers.id).map(_ => Ok)
-//        }
-//        .getOrElse(Future.successful(Ok))
-//  }
-
-//  def keepAlive(): Action[AnyContent] = (identify andThen getData).async {
-//    implicit request =>
-//      request.userAnswers
-//        .map {
-//          answers =>
-//            sessionRepository.set(answers).map (_ => NoContent)
-//        }
-//        .getOrElse(Future.successful(Ok))
-//  }
-
-
   def keepAlive(): Action[AnyContent] = (identify andThen getData).async { implicit request =>
-    val userAnswers = request.userAnswers.getOrElse[UserAnswers](UserAnswers(request.userId))
-    sessionRepository.set(userAnswers).map { _ =>
-      NoContent
-    }
+    request.userAnswers
+      .map { answers =>
+        sessionRepository.keepAlive(answers.id).map(_ => Ok)
+      }
+      .getOrElse(Future.successful(Ok))
   }
 }

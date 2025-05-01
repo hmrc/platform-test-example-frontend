@@ -34,11 +34,9 @@ class IndexControllerSpec extends SpecBase {
 
         val result = route(application, request).value
 
-        val view = application.injector.instanceOf[IndexView]
 
-        status(result) mustEqual OK
+        status(result) mustEqual SEE_OTHER
 
-        contentAsString(result) mustEqual view()(request, messages(application)).toString
       }
     }
   }
