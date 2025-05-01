@@ -47,3 +47,11 @@ signedOut.guidance = We did not save your answers.
 
 unauthorised.title = You can’t access this service with this account
 unauthorised.heading = You can’t access this service with this account
+
+whatPetLookingFor.title = What pet are you looking for?
+whatPetLookingFor.heading = What pet are you looking for?
+whatPetLookingFor.cat = Cat
+whatPetLookingFor.dog = Dog
+whatPetLookingFor.checkYourAnswersLabel = What pet are you looking for?
+whatPetLookingFor.error.required = Select whatPetLookingFor
+whatPetLookingFor.change.hidden = WhatPetLookingFor

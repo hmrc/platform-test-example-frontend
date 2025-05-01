@@ -1,4 +1,4 @@
-@*
+/*
  * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,30 +12,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *@
+ */
 
-@this(
-    layout: templates.Layout,
-    govukButton: GovukButton
-)
+package pages
 
-@()(implicit request: Request[_], messages: Messages)
+import play.api.libs.json.JsPath
 
-@layout(
-    pageTitle    = titleNoForm(messages("signedOut.title")),
-    showBackLink = false,
-    timeout      = false,
-    showSignOut  = false
-) {
+case object IndexPage extends Page {
 
-    <h1 class="govuk-heading-xl">@messages("signedOut.heading")</h1>
 
-    <p class="govuk-body">@messages("signedOut.guidance")</p>
-
-    <p class="govuk-body">
-        @govukButton(
-            ButtonViewModel(messages("site.signIn"))
-                .asLink(routes.IndexController.onPageLoad().url)
-        )
-    </p>
+  override def toString: String = "index"
 }

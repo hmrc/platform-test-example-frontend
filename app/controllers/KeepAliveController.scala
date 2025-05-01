@@ -20,6 +20,7 @@ import controllers.actions.{DataRetrievalAction, IdentifierAction}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import repositories.SessionRepository
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
+import models.UserAnswers
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
@@ -31,13 +32,31 @@ class KeepAliveController @Inject()(
                                      sessionRepository: SessionRepository
                                    )(implicit ec: ExecutionContext) extends FrontendBaseController {
 
-  def keepAlive(): Action[AnyContent] = (identify andThen getData).async {
-    implicit request =>
-      request.userAnswers
-        .map {
-          answers =>
-            sessionRepository.keepAlive(answers.id).map(_ => Ok)
-        }
-        .getOrElse(Future.successful(Ok))
+//  def keepAlive(): Action[AnyContent] = (identify andThen getData).async {
+//    implicit request =>
+//      request.userAnswers
+//        .map {
+//          answers =>
+//            sessionRepository.keepAlive(answers.id).map(_ => Ok)
+//        }
+//        .getOrElse(Future.successful(Ok))
+//  }
+
+//  def keepAlive(): Action[AnyContent] = (identify andThen getData).async {
+//    implicit request =>
+//      request.userAnswers
+//        .map {
+//          answers =>
+//            sessionRepository.set(answers).map (_ => NoContent)
+//        }
+//        .getOrElse(Future.successful(Ok))
+//  }
+
+
+  def keepAlive(): Action[AnyContent] = (identify andThen getData).async { implicit request =>
+    val userAnswers = request.userAnswers.getOrElse[UserAnswers](UserAnswers(request.userId))
+    sessionRepository.set(userAnswers).map { _ =>
+      NoContent
+    }
   }
 }
