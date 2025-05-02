@@ -1,7 +1,7 @@
 
 # platform-test-example-frontend
 
-This is a placeholder README.md for a new repository
+This is a Example Frontend that the Platform Test team will use for examples of good testing standards and guidance. 
 
 ### License
 

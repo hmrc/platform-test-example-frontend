@@ -10,12 +10,14 @@ GET         /language/:lang                              controllers.LanguageSwi
 
 GET         /refresh-session                             controllers.KeepAliveController.keepAlive()
 
+#GET         /this-service-has-been-reset                 controllers.SessionExpiredController.onPageLoad()
+
 GET         /there-is-a-problem                          controllers.JourneyRecoveryController.onPageLoad(continueUrl: Option[RedirectUrl] ?= None)
 
 GET         /check-your-answers                          controllers.CheckYourAnswersController.onPageLoad()
 
-GET         /account/sign-out-survey                     controllers.auth.AuthController.signOut()
-GET         /account/sign-out                            controllers.auth.AuthController.signOutNoSurvey()
-GET         /account/signed-out                          controllers.auth.SignedOutController.onPageLoad()
 
-GET         /unauthorised                                controllers.UnauthorisedController.onPageLoad()
+GET        /whatPetLookingFor                        controllers.WhatPetLookingForController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatPetLookingFor                        controllers.WhatPetLookingForController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatPetLookingFor                  controllers.WhatPetLookingForController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatPetLookingFor                  controllers.WhatPetLookingForController.onSubmit(mode: Mode = CheckMode)

@@ -6,7 +6,7 @@ import uk.gov.hmrc.versioning.SbtGitVersioning.autoImport.majorVersion
 lazy val appName: String = "platform-test-example-frontend"
 
 ThisBuild / majorVersion := 0
-ThisBuild / scalaVersion := "2.13.12"
+ThisBuild / scalaVersion := "2.13.16"
 
 lazy val microservice = (project in file("."))
   .enablePlugins(PlayScala, SbtDistributablesPlugin)
@@ -31,7 +31,7 @@ lazy val microservice = (project in file("."))
       "controllers.routes._",
       "viewmodels.govuk.all._"
     ),
-    PlayKeys.playDefaultPort := 9000,
+    PlayKeys.playDefaultPort := 1066,
     ScoverageKeys.coverageExcludedFiles := "<empty>;Reverse.*;.*handlers.*;.*components.*;" +
       ".*Routes.*;.*viewmodels.govuk.*;",
     ScoverageKeys.coverageMinimumStmtTotal := 78,
