@@ -21,3 +21,8 @@ GET        /whatPetLookingFor                        controllers.WhatPetLookingF
 POST       /whatPetLookingFor                        controllers.WhatPetLookingForController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatPetLookingFor                  controllers.WhatPetLookingForController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatPetLookingFor                  controllers.WhatPetLookingForController.onSubmit(mode: Mode = CheckMode)
+
+GET        /willPetBeAroundChildren                        controllers.WillPetBeAroundChildrenController.onPageLoad(mode: Mode = NormalMode)
+POST       /willPetBeAroundChildren                        controllers.WillPetBeAroundChildrenController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWillPetBeAroundChildren                  controllers.WillPetBeAroundChildrenController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWillPetBeAroundChildren                  controllers.WillPetBeAroundChildrenController.onSubmit(mode: Mode = CheckMode)

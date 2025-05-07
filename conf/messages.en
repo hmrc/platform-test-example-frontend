@@ -55,3 +55,9 @@ whatPetLookingFor.dog = Dog
 whatPetLookingFor.checkYourAnswersLabel = What pet are you looking for?
 whatPetLookingFor.error.required = Select whatPetLookingFor
 whatPetLookingFor.change.hidden = WhatPetLookingFor
+
+willPetBeAroundChildren.title = Will the pet be around children?
+willPetBeAroundChildren.heading = Will the pet be around children?
+willPetBeAroundChildren.checkYourAnswersLabel = Will the pet be around children?
+willPetBeAroundChildren.error.required = Select whether the pet will be around children
+willPetBeAroundChildren.change.hidden = WillPetBeAroundChildren
