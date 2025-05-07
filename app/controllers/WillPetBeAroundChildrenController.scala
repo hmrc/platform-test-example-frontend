@@ -17,38 +17,37 @@
 package controllers
 
 import controllers.actions._
-import forms.WhatPetLookingForFormProvider
-
+import forms.WillPetBeAroundChildrenFormProvider
 import javax.inject.Inject
 import models.Mode
 import navigation.Navigator
-import pages.{WhatPetLookingForPage, WillPetBeAroundChildrenPage}
+import pages.WillPetBeAroundChildrenPage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import repositories.SessionRepository
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
-import views.html.WhatPetLookingForView
+import views.html.WillPetBeAroundChildrenView
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class WhatPetLookingForController @Inject()(
-                                       override val messagesApi: MessagesApi,
-                                       sessionRepository: SessionRepository,
-                                       navigator: Navigator,
-                                       getData: DataRetrievalAction,
-                                       identify: IdentifierAction,
-                                       requireData: DataRequiredAction,
-                                       formProvider: WhatPetLookingForFormProvider,
-                                       val controllerComponents: MessagesControllerComponents,
-                                       view: WhatPetLookingForView
-                                     )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport {
+class WillPetBeAroundChildrenController @Inject()(
+                                         override val messagesApi: MessagesApi,
+                                         sessionRepository: SessionRepository,
+                                         navigator: Navigator,
+                                         identify: IdentifierAction,
+                                         getData: DataRetrievalAction,
+                                         requireData: DataRequiredAction,
+                                         formProvider: WillPetBeAroundChildrenFormProvider,
+                                         val controllerComponents: MessagesControllerComponents,
+                                         view: WillPetBeAroundChildrenView
+                                 )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport {
 
   val form = formProvider()
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) {
     implicit request =>
 
-      val preparedForm = request.userAnswers.get(WhatPetLookingForPage) match {
+      val preparedForm = request.userAnswers.get(WillPetBeAroundChildrenPage) match {
         case None => form
         case Some(value) => form.fill(value)
       }
@@ -65,9 +64,9 @@ class WhatPetLookingForController @Inject()(
 
         value =>
           for {
-            updatedAnswers <- Future.fromTry(request.userAnswers.set(WhatPetLookingForPage, value))
+            updatedAnswers <- Future.fromTry(request.userAnswers.set(WillPetBeAroundChildrenPage, value))
             _              <- sessionRepository.set(updatedAnswers)
-          } yield Redirect(navigator.nextPage(WhatPetLookingForPage, mode, updatedAnswers))
+          } yield Redirect(navigator.nextPage(WillPetBeAroundChildrenPage, mode, updatedAnswers))
       )
   }
 }
