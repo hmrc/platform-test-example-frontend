@@ -61,3 +61,13 @@ willPetBeAroundChildren.heading = A fydd yr anifail anwes o gwmpas plant?
 willPetBeAroundChildren.checkYourAnswersLabel = A fydd yr anifail anwes o gwmpas plant?
 willPetBeAroundChildren.error.required = Dewiswch a fydd yr anifail anwes o gwmpas plant
 willPetBeAroundChildren.change.hidden = WillPetBeAroundChildren
+
+whenWantPetFrom.title = Pryd ydych chi eisiau'r anifail anwes o?
+whenWantPetFrom.heading = Pryd ydych chi eisiau'r anifail anwes o?
+whenWantPetFrom.hint = Er enghraifft, 12 11 2007.
+whenWantPetFrom.checkYourAnswersLabel = Pryd ydych chi eisiau'r anifail anwes o?
+whenWantPetFrom.error.required.all = Nodwch pryd rydych chi eisiau'r anifail anwes o?
+whenWantPetFrom.error.required.two = Rhaid i'r dyddiad gynnwys {0} a {1}
+whenWantPetFrom.error.required = Rhaid i'r dyddiad gynnwys {0}
+whenWantPetFrom.error.invalid = Nodwch ddyddiad go iawn
+whenWantPetFrom.change.hidden = WhenWantPetFrom

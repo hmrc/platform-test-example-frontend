@@ -26,3 +26,8 @@ GET        /willPetBeAroundChildren                        controllers.WillPetBe
 POST       /willPetBeAroundChildren                        controllers.WillPetBeAroundChildrenController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWillPetBeAroundChildren                  controllers.WillPetBeAroundChildrenController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWillPetBeAroundChildren                  controllers.WillPetBeAroundChildrenController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whenWantPetFrom                  controllers.WhenWantPetFromController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenWantPetFrom                  controllers.WhenWantPetFromController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhenWantPetFrom                        controllers.WhenWantPetFromController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhenWantPetFrom                        controllers.WhenWantPetFromController.onSubmit(mode: Mode = CheckMode)
