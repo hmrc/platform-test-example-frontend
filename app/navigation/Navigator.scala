@@ -30,7 +30,8 @@ class Navigator @Inject()() {
     case IndexPage => _ => routes.WhatPetLookingForController.onPageLoad(NormalMode)
     case WhatPetLookingForPage => _ => routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
     case WillPetBeAroundChildrenPage => _ => routes.WhenWantPetFromController.onPageLoad(NormalMode)
-    case WhenWantPetFromPage => _ => routes.IndexController.onPageLoad()
+    case WhenWantPetFromPage => _ => routes.WhenWantPetUntilController.onPageLoad(NormalMode)
+    case WhenWantPetUntilPage => _ => routes.IndexController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 

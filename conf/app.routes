@@ -31,3 +31,8 @@ GET        /whenWantPetFrom                  controllers.WhenWantPetFromControll
 POST       /whenWantPetFrom                  controllers.WhenWantPetFromController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhenWantPetFrom                        controllers.WhenWantPetFromController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhenWantPetFrom                        controllers.WhenWantPetFromController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whenWantPetUntil                  controllers.WhenWantPetUntilController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenWantPetUntil                  controllers.WhenWantPetUntilController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhenWantPetUntil                        controllers.WhenWantPetUntilController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhenWantPetUntil                        controllers.WhenWantPetUntilController.onSubmit(mode: Mode = CheckMode)
