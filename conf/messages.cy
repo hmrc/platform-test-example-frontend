@@ -33,6 +33,7 @@ index.guidance = Croeso i'ch blaen newydd. Gweler y ffeil README am ganllaw i dd
 
 checkYourAnswers.title = Gwirio eich atebion
 checkYourAnswers.heading = Gwirio eich atebion
+checkYourAnswers.acceptandcomplete = Derbyn ac anfon
 
 journeyRecovery.continue.title = Mae'n ddrwg gennym, mae problem gyda'r gwasanaeth
 journeyRecovery.continue.heading = Mae'n ddrwg gennym, mae problem gyda'r gwasanaeth

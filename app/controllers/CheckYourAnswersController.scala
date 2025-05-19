@@ -21,8 +21,13 @@ import controllers.actions.{DataRequiredAction, DataRetrievalAction, IdentifierA
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
+import viewmodels.checkAnswers.{WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary}
 import viewmodels.govuk.summarylist._
 import views.html.CheckYourAnswersView
+import models.{Mode, NormalMode}
+import pages.WhenWantPetFromPage
+
+import scala.concurrent.{ExecutionContext, Future}
 
 class CheckYourAnswersController @Inject()(
                                             override val messagesApi: MessagesApi,
@@ -37,9 +42,18 @@ class CheckYourAnswersController @Inject()(
     implicit request =>
 
       val list = SummaryListViewModel(
-        rows = Seq.empty
+        Seq(
+          WhatPetLookingForSummary.row(request.userAnswers),
+          WillPetBeAroundChildrenSummary.row(request.userAnswers),
+          WhenWantPetFromSummary.row(request.userAnswers),
+          WhenWantPetUntilSummary.row(request.userAnswers)
+        ).flatten
       )
-
       Ok(view(list))
+  }
+
+  def onSubmit: Action[AnyContent] = (identify andThen getData andThen requireData).async {
+    implicit request =>
+      Future.successful(Redirect(routes.WhatPetLookingForController.onPageLoad(mode = NormalMode)))
   }
 }
