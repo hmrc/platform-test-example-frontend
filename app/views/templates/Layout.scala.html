@@ -42,9 +42,6 @@
 
 @hmrcStandardPage(HmrcStandardPageParams(
     pageTitle = Some(pageTitle),
-    templateOverrides = TemplateOverrides(
-        additionalHeadBlock = Some(head)
-    ),
     serviceURLs = ServiceURLs(
         serviceUrl = Some(routes.IndexController.onPageLoad().url)
     ),
