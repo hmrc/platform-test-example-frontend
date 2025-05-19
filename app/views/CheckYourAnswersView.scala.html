@@ -14,9 +14,13 @@
  * limitations under the License.
  *@
 
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Button
+
 @this(
     layout: templates.Layout,
-    govukSummaryList: GovukSummaryList
+    formHelper: FormWithCSRF,
+    govukSummaryList: GovukSummaryList,
+    govukButton: GovukButton
 )
 
 @(list: SummaryList)(implicit request: Request[_], messages: Messages)
@@ -26,4 +30,8 @@
     <h1 class="govuk-heading-xl">@messages("checkYourAnswers.heading")</h1>
 
     @govukSummaryList(list)
+
+    @formHelper(action = routes.CheckYourAnswersController.onSubmit()) {
+        @govukButton(Button(content = Text(messages("checkYourAnswers.acceptandcomplete"))))
+    }
 }
