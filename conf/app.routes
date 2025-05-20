@@ -37,3 +37,8 @@ GET        /whenWantPetUntil                  controllers.WhenWantPetUntilContro
 POST       /whenWantPetUntil                  controllers.WhenWantPetUntilController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhenWantPetUntil                        controllers.WhenWantPetUntilController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhenWantPetUntil                        controllers.WhenWantPetUntilController.onSubmit(mode: Mode = CheckMode)
+
+GET        /payYourDeposit                        controllers.PayYourDepositController.onPageLoad(mode: Mode = NormalMode)
+POST       /payYourDeposit                        controllers.PayYourDepositController.onSubmit(mode: Mode = NormalMode)
+GET        /changePayYourDeposit                  controllers.PayYourDepositController.onPageLoad(mode: Mode = CheckMode)
+POST       /changePayYourDeposit                  controllers.PayYourDepositController.onSubmit(mode: Mode = CheckMode)

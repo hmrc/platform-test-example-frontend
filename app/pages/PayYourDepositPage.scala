@@ -14,25 +14,14 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import models._
-import org.scalacheck.{Arbitrary, Gen}
+import models.PayYourDeposit
+import play.api.libs.json.JsPath
 
-trait ModelGenerators {
+case object PayYourDepositPage extends QuestionPage[PayYourDeposit] {
 
-  implicit lazy val arbitraryPayYourDeposit: Arbitrary[PayYourDeposit] =
-    Arbitrary {
-      for {
-        AccountName <- arbitrary[String]
-        SortCode <- arbitrary[String]
-        AccountNumber <- arbitrary[String]
-        RollNumber <- arbitrary[String]
-      } yield PayYourDeposit(AccountName, SortCode, AccountNumber, RollNumber)
-    }
+  override def path: JsPath = JsPath \ toString
 
-  implicit lazy val arbitraryWhatPetLookingFor: Arbitrary[WhatPetLookingFor] =
-    Arbitrary {
-      Gen.oneOf(WhatPetLookingFor.values)
-    }
+  override def toString: String = "payYourDeposit"
 }

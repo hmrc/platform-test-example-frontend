@@ -14,25 +14,13 @@
  * limitations under the License.
  */
 
-package generators
+package models
 
-import models._
-import org.scalacheck.{Arbitrary, Gen}
+import play.api.libs.json._
 
-trait ModelGenerators {
+case class PayYourDeposit (AccountName: String, SortCode: String, AccountNumber: String, RollNumber: Option[String])
 
-  implicit lazy val arbitraryPayYourDeposit: Arbitrary[PayYourDeposit] =
-    Arbitrary {
-      for {
-        AccountName <- arbitrary[String]
-        SortCode <- arbitrary[String]
-        AccountNumber <- arbitrary[String]
-        RollNumber <- arbitrary[String]
-      } yield PayYourDeposit(AccountName, SortCode, AccountNumber, RollNumber)
-    }
+object PayYourDeposit {
 
-  implicit lazy val arbitraryWhatPetLookingFor: Arbitrary[WhatPetLookingFor] =
-    Arbitrary {
-      Gen.oneOf(WhatPetLookingFor.values)
-    }
+  implicit val format: OFormat[PayYourDeposit] = Json.format
 }

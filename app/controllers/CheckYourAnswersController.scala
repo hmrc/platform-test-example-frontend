@@ -54,6 +54,6 @@ class CheckYourAnswersController @Inject()(
 
   def onSubmit: Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
-      Future.successful(Redirect(routes.WhatPetLookingForController.onPageLoad(mode = NormalMode)))
+      Future.successful(Redirect(routes.PayYourDepositController.onPageLoad(mode = NormalMode)))
   }
 }
