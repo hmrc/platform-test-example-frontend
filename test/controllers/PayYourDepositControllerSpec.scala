@@ -1,3 +1,19 @@
+/*
+ * Copyright 2025 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package controllers
 
 import base.SpecBase
@@ -69,7 +85,7 @@ class PayYourDepositControllerSpec extends SpecBase with MockitoSugar {
         val result = route(application, request).value
 
         status(result) mustEqual OK
-        contentAsString(result) mustEqual view(form.fill(PayYourDeposit("value 1", "value 2", "value 3", "value 4")), NormalMode)(request, messages(application)).toString
+        contentAsString(result) mustEqual view(form.fill(PayYourDeposit("value 1", "value 2", "value 3", Some("value 4"))), NormalMode)(request, messages(application)).toString
       }
     }
 
@@ -90,7 +106,7 @@ class PayYourDepositControllerSpec extends SpecBase with MockitoSugar {
       running(application) {
         val request =
           FakeRequest(POST, payYourDepositRoute)
-            .withFormUrlEncodedBody(("AccountName", "value 1"), ("SortCode", "value 2"), ("AccountNumber", "value 3"), ("RollNumber", "value 4"))
+            .withFormUrlEncodedBody(("AccountName", "value 1"), ("SortCode", "value2"), ("AccountNumber", "value 3"), ("RollNumber", "value 4"))
 
         val result = route(application, request).value
 

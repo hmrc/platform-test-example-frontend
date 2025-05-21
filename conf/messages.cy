@@ -6,6 +6,7 @@ site.change = Newid
 site.no = Nac ydw
 site.yes = Oes
 site.continue = Parhau
+site.makePayment = Gwneud taliad
 site.start = Dechreuwch nawr
 site.startAgain = Dechreuwch eto
 site.signIn = Mewngofnodwch

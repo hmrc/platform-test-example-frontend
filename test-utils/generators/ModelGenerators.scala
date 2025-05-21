@@ -18,6 +18,7 @@ package generators
 
 import models._
 import org.scalacheck.{Arbitrary, Gen}
+import org.scalacheck.Arbitrary.arbitrary
 
 trait ModelGenerators {
 
@@ -27,7 +28,7 @@ trait ModelGenerators {
         AccountName <- arbitrary[String]
         SortCode <- arbitrary[String]
         AccountNumber <- arbitrary[String]
-        RollNumber <- arbitrary[String]
+        RollNumber <- arbitrary[Option[String]]
       } yield PayYourDeposit(AccountName, SortCode, AccountNumber, RollNumber)
     }
 
