@@ -17,43 +17,56 @@
 package controllers
 
 import base.SpecBase
-import forms.WillPetBeAroundChildrenFormProvider
-import models.{NormalMode, UserAnswers}
+import forms.PayYourDepositFormProvider
+import models.{NormalMode, PayYourDeposit, UserAnswers}
 import navigation.{FakeNavigator, Navigator}
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.when
 import org.scalatestplus.mockito.MockitoSugar
-import pages.WillPetBeAroundChildrenPage
+import pages.PayYourDepositPage
 import play.api.inject.bind
+import play.api.libs.json.Json
 import play.api.mvc.Call
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import repositories.SessionRepository
-import views.html.WillPetBeAroundChildrenView
+import views.html.PayYourDepositView
 
 import scala.concurrent.Future
 
-class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
+class PayYourDepositControllerSpec extends SpecBase with MockitoSugar {
 
   def onwardRoute = Call("GET", "/foo")
 
-  val formProvider = new WillPetBeAroundChildrenFormProvider()
+  val formProvider = new PayYourDepositFormProvider()
   val form = formProvider()
 
-  lazy val willPetBeAroundChildrenRoute = routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode).url
+  lazy val payYourDepositRoute = routes.PayYourDepositController.onPageLoad(NormalMode).url
 
-  "WillPetBeAroundChildren Controller" - {
+  val userAnswers = UserAnswers(
+    userAnswersId,
+    Json.obj(
+      PayYourDepositPage.toString -> Json.obj(
+        "AccountName" -> "value 1",
+        "SortCode" -> "value 2",
+        "AccountNumber" -> "value 3",
+        "RollNumber" -> "value 4"
+      )
+    )
+  )
+
+  "PayYourDeposit Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
 
       running(application) {
-        val request = FakeRequest(GET, willPetBeAroundChildrenRoute)
+        val request = FakeRequest(GET, payYourDepositRoute)
+
+        val view = application.injector.instanceOf[PayYourDepositView]
 
         val result = route(application, request).value
-
-        val view = application.injector.instanceOf[WillPetBeAroundChildrenView]
 
         status(result) mustEqual OK
         contentAsString(result) mustEqual view(form, NormalMode)(request, messages(application)).toString
@@ -62,19 +75,17 @@ class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
 
     "must populate the view correctly on a GET when the question has previously been answered" in {
 
-      val userAnswers = UserAnswers(userAnswersId).set(WillPetBeAroundChildrenPage, true).success.value
-
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
 
       running(application) {
-        val request = FakeRequest(GET, willPetBeAroundChildrenRoute)
+        val request = FakeRequest(GET, payYourDepositRoute)
 
-        val view = application.injector.instanceOf[WillPetBeAroundChildrenView]
+        val view = application.injector.instanceOf[PayYourDepositView]
 
         val result = route(application, request).value
 
         status(result) mustEqual OK
-        contentAsString(result) mustEqual view(form.fill(true), NormalMode)(request, messages(application)).toString
+        contentAsString(result) mustEqual view(form.fill(PayYourDeposit("value 1", "value 2", "value 3", Some("value 4"))), NormalMode)(request, messages(application)).toString
       }
     }
 
@@ -94,8 +105,8 @@ class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
 
       running(application) {
         val request =
-          FakeRequest(POST, willPetBeAroundChildrenRoute)
-            .withFormUrlEncodedBody(("value", "true"))
+          FakeRequest(POST, payYourDepositRoute)
+            .withFormUrlEncodedBody(("AccountName", "value 1"), ("SortCode", "value2"), ("AccountNumber", "value 3"), ("RollNumber", "value 4"))
 
         val result = route(application, request).value
 
@@ -110,12 +121,12 @@ class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
 
       running(application) {
         val request =
-          FakeRequest(POST, willPetBeAroundChildrenRoute)
-            .withFormUrlEncodedBody(("value", ""))
+          FakeRequest(POST, payYourDepositRoute)
+            .withFormUrlEncodedBody(("value", "invalid value"))
 
-        val boundForm = form.bind(Map("value" -> ""))
+        val boundForm = form.bind(Map("value" -> "invalid value"))
 
-        val view = application.injector.instanceOf[WillPetBeAroundChildrenView]
+        val view = application.injector.instanceOf[PayYourDepositView]
 
         val result = route(application, request).value
 
@@ -129,7 +140,7 @@ class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
       val application = applicationBuilder(userAnswers = None).build()
 
       running(application) {
-        val request = FakeRequest(GET, willPetBeAroundChildrenRoute)
+        val request = FakeRequest(GET, payYourDepositRoute)
 
         val result = route(application, request).value
 
@@ -144,8 +155,8 @@ class WillPetBeAroundChildrenControllerSpec extends SpecBase with MockitoSugar {
 
       running(application) {
         val request =
-          FakeRequest(POST, willPetBeAroundChildrenRoute)
-            .withFormUrlEncodedBody(("value", "true"))
+          FakeRequest(POST, payYourDepositRoute)
+            .withFormUrlEncodedBody(("AccountName", "value 1"), ("SortCode", "value 2"), ("AccountNumber", "value 3"), ("RollNumber", "value 4"))
 
         val result = route(application, request).value
 

@@ -18,8 +18,19 @@ package generators
 
 import models._
 import org.scalacheck.{Arbitrary, Gen}
+import org.scalacheck.Arbitrary.arbitrary
 
 trait ModelGenerators {
+
+  implicit lazy val arbitraryPayYourDeposit: Arbitrary[PayYourDeposit] =
+    Arbitrary {
+      for {
+        AccountName <- arbitrary[String]
+        SortCode <- arbitrary[String]
+        AccountNumber <- arbitrary[String]
+        RollNumber <- arbitrary[Option[String]]
+      } yield PayYourDeposit(AccountName, SortCode, AccountNumber, RollNumber)
+    }
 
   implicit lazy val arbitraryWhatPetLookingFor: Arbitrary[WhatPetLookingFor] =
     Arbitrary {
