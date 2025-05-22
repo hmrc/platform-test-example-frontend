@@ -105,3 +105,11 @@ payYourDeposit.AccountName.change.hidden = AccountName
 payYourDeposit.SortCode.change.hidden = SortCode
 payYourDeposit.AccountNumber.change.hidden = AccountNumber
 payYourDeposit.RollNumber.change.hidden = RollNumber
+
+confirmation.title = Pet requested
+confirmation.heading = Pet requested
+confirmation.reference = Your reference number
+confirmation.emailConfirmation = We have sent you a confirmation email.
+confirmation.whatHappensNext = What happens next
+confirmation.p1 = We have sent your application to the pet request office.
+confirmation.p2 = They will contact you either to confirm your request, or to ask for more information.
