@@ -104,3 +104,11 @@ payYourDeposit.AccountName.change.hidden = Enw'r cyfrif
 payYourDeposit.SortCode.change.hidden = Cod didoli
 payYourDeposit.AccountNumber.change.hidden = Rhif cyfrif
 payYourDeposit.RollNumber.change.hidden = Rhif rôl
+
+confirmation.title = Cais am anifail anwes
+confirmation.heading = Cais am anifail anwes
+confirmation.reference = Eich rhif cyfeirnod
+confirmation.emailConfirmation = Rydym wedi anfon e-bost cadarnhau atoch.
+confirmation.whatHappensNext = Beth sy’n digwydd nesaf
+confirmation.p1 = Rydym wedi anfon eich cais i'r swyddfa ceisiadau am anifeiliaid anwes.
+confirmation.p2 = Byddant yn cysylltu â chi naill ai i gadarnhau eich cais, neu i ofyn am fwy o wybodaeth.
