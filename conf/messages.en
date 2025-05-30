@@ -19,10 +19,10 @@ date.error.day = day
 date.error.month = month
 date.error.year = year
 
-timeout.title = You’re about to be signed out
-timeout.message = For security reasons, you will be signed out of this service in
-timeout.keepAlive = Stay signed in
-timeout.signOut = Sign out
+timeout.title = For your security
+timeout.message = We will delete your answers in
+timeout.keepAlive = Continue with service
+timeout.signOut = Delete your answers
 
 error.title.prefix = Error:
 error.prefix = Error
@@ -39,13 +39,14 @@ checkYourAnswers.acceptandcomplete = Accept and send
 journeyRecovery.continue.title = Sorry, there is a problem with the service
 journeyRecovery.continue.heading = Sorry, there is a problem with the service
 journeyRecovery.continue.guidance = [Add content to explain how to proceed.]
+
 journeyRecovery.startAgain.title = Sorry, there is a problem with the service
 journeyRecovery.startAgain.heading = Sorry, there is a problem with the service
 journeyRecovery.startAgain.guidance = [Add content to explain why the user needs to start again.]
 
-signedOut.title = For your security, we signed you out
-signedOut.heading = For your security, we signed you out
-signedOut.guidance = We did not save your answers.
+signedOut.title = For your security, we have deleted your answers
+signedOut.heading = For your security, we have deleted your answers
+signedOut.guidance = We have deleted your answers.
 
 unauthorised.title = You can’t access this service with this account
 unauthorised.heading = You can’t access this service with this account
