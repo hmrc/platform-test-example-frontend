@@ -32,6 +32,24 @@
 
 @(pageTitle: String, showBackLink: Boolean = true, timeout: Boolean = true, showSignOut: Boolean = true, showHmrcBanner: Boolean = false)(contentBlock: Html)(implicit rh: RequestHeader, messages: Messages)
 
+@head = {
+
+    @if(timeout) {
+            @hmrcTimeoutDialog(TimeoutDialog(
+                timeout             = Some(appConfig.timeout),
+                countdown           = Some(appConfig.countdown),
+                keepAliveUrl        = Some(routes.KeepAliveController.keepAlive().url),
+                keepAliveButtonText = Some(messages("timeout.keepAlive")),
+                signOutUrl          = Some(controllers.routes.AuthController.signOut().url),
+                signOutButtonText   = Some(messages("timeout.signOut")),
+                title               = Some(messages("timeout.title")),
+                message             = Some(messages("timeout.message")),
+                language            = Some(messages.lang.code)
+            ))
+        }
+    }
+
+
 @content = {
     @contentBlock
     @hmrcReportTechnicalIssueHelper()
@@ -39,6 +57,9 @@
 
 @hmrcStandardPage(HmrcStandardPageParams(
     pageTitle = Some(pageTitle),
+    templateOverrides = TemplateOverrides(
+        additionalHeadBlock = Some(head)
+    ),
     serviceURLs = ServiceURLs(
         serviceUrl = Some(routes.IndexController.onPageLoad().url)
     ),

@@ -20,9 +20,9 @@ date.error.month = mis
 date.error.year = blwyddyn
 
 timeout.title = Rydych ar fin cael eich allgofnodi
-timeout.message = Am resymau diogelwch, byddwch yn cael eich allgofnodi o'r gwasanaeth hwn i mewn
+timeout.message = Er eich diogelwch, byddwn yn eich allgofnodi cyn pen
 timeout.keepAlive = Arhoswch wedi'ch mewngofnodi
-timeout.signOut = Arwyddo allan
+timeout.signOut = Dileu’ch atebion
 
 error.title.prefix = Gwall:
 error.prefix = Gwall

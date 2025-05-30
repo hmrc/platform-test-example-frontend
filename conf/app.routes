@@ -44,3 +44,8 @@ GET        /changePayYourDeposit                  controllers.PayYourDepositCont
 POST       /changePayYourDeposit                  controllers.PayYourDepositController.onSubmit(mode: Mode = CheckMode)
 
 GET        /confirmation                       controllers.ConfirmationController.onPageLoad()
+
+GET         /account/signed-out                controllers.SignedOutController.onPageLoad()
+GET         /account/sign-out-survey                     controllers.AuthController.signOut()
+GET         /account/sign-out                            controllers.AuthController.signOutNoSurvey()
+
