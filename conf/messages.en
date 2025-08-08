@@ -114,3 +114,10 @@ confirmation.emailConfirmation = We have sent you a confirmation email.
 confirmation.whatHappensNext = What happens next
 confirmation.p1 = We have sent your application to the pet request office.
 confirmation.p2 = They will contact you either to confirm your request, or to ask for more information.
+
+whatIsYourName.title = What is your name?
+whatIsYourName.heading = What is your name?
+whatIsYourName.checkYourAnswersLabel = What is your name?
+whatIsYourName.error.required = Enter what your name is
+whatIsYourName.error.length = Your name must be 100 characters or less
+whatIsYourName.change.hidden = WhatIsYourName

@@ -49,3 +49,8 @@ GET         /account/signed-out                controllers.SignedOutController.o
 GET         /account/sign-out-survey                     controllers.AuthController.signOut()
 GET         /account/sign-out                            controllers.AuthController.signOutNoSurvey()
 
+
+GET        /whatIsYourName                        controllers.whatIsYourNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsYourName                        controllers.whatIsYourNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsYourName                  controllers.whatIsYourNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsYourName                  controllers.whatIsYourNameController.onSubmit(mode: Mode = CheckMode)
