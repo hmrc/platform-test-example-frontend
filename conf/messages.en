@@ -121,3 +121,10 @@ whatIsYourName.checkYourAnswersLabel = What is your name?
 whatIsYourName.error.required = Enter what your name is
 whatIsYourName.error.length = Your name must be 100 characters or less
 whatIsYourName.change.hidden = WhatIsYourName
+
+whatIsYourEmail.title = What is your email?
+whatIsYourEmail.heading = What is your email?
+whatIsYourEmail.checkYourAnswersLabel = What is your email?
+whatIsYourEmail.error.required = Enter what your email is
+whatIsYourEmail.error.length = Your email must be 100 characters or less
+whatIsYourEmail.change.hidden = WhatIsYourEmail

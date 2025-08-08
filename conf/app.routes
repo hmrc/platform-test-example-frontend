@@ -50,7 +50,12 @@ GET         /account/sign-out-survey                     controllers.AuthControl
 GET         /account/sign-out                            controllers.AuthController.signOutNoSurvey()
 
 
-GET        /whatIsYourName                        controllers.whatIsYourNameController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsYourName                        controllers.whatIsYourNameController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsYourName                  controllers.whatIsYourNameController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsYourName                  controllers.whatIsYourNameController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsYourName                        controllers.WhatIsYourNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsYourName                        controllers.WhatIsYourNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsYourName                  controllers.WhatIsYourNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsYourName                  controllers.WhatIsYourNameController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsYourEmail                        controllers.WhatIsYourEmailController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsYourEmail                        controllers.WhatIsYourEmailController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsYourEmail                  controllers.WhatIsYourEmailController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsYourEmail                  controllers.WhatIsYourEmailController.onSubmit(mode: Mode = CheckMode)

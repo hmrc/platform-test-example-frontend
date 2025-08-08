@@ -33,6 +33,8 @@ class Navigator @Inject()() {
     case WhenWantPetFromPage => _ => routes.WhenWantPetUntilController.onPageLoad(NormalMode)
     case WhenWantPetUntilPage => _ => routes.CheckYourAnswersController.onPageLoad()
     case PayYourDepositPage => _ => routes.ConfirmationController.onPageLoad()
+    case WhatIsYourNamePage => _ => routes.ConfirmationController.onPageLoad()
+    case WhatIsYourEmailPage => _ => routes.ConfirmationController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 

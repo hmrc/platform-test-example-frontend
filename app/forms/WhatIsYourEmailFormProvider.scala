@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package pages
+package forms
 
-import play.api.libs.json.JsPath
+import javax.inject.Inject
 
-case object whatIsYourNamePage extends QuestionPage[String] {
+import forms.mappings.Mappings
+import play.api.data.Form
 
-  override def path: JsPath = JsPath \ toString
+class WhatIsYourEmailFormProvider @Inject() extends Mappings {
 
-  override def toString: String = "whatIsYourName"
+  def apply(): Form[String] =
+    Form(
+      "value" -> text("whatIsYourEmail.error.required")
+        .verifying(maxLength(100, "whatIsYourEmail.error.length"))
+    )
 }
