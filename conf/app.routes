@@ -59,3 +59,13 @@ GET        /whatIsYourEmail                        controllers.WhatIsYourEmailCo
 POST       /whatIsYourEmail                        controllers.WhatIsYourEmailController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsYourEmail                  controllers.WhatIsYourEmailController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsYourEmail                  controllers.WhatIsYourEmailController.onSubmit(mode: Mode = CheckMode)
+
+GET        /chooseLocation                        controllers.ChooseLocationController.onPageLoad(mode: Mode = NormalMode)
+POST       /chooseLocation                        controllers.ChooseLocationController.onSubmit(mode: Mode = NormalMode)
+GET        /changeChooseLocation                  controllers.ChooseLocationController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeChooseLocation                  controllers.ChooseLocationController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatWouldYouLikeToDo                        controllers.WhatWouldYouLikeToDoController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatWouldYouLikeToDo                        controllers.WhatWouldYouLikeToDoController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatWouldYouLikeToDo                  controllers.WhatWouldYouLikeToDoController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatWouldYouLikeToDo                  controllers.WhatWouldYouLikeToDoController.onSubmit(mode: Mode = CheckMode)

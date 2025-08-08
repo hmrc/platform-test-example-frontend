@@ -17,9 +17,9 @@
 package navigation
 
 import javax.inject.{Inject, Singleton}
-
 import play.api.mvc.Call
 import controllers.routes
+import models.WhatWouldYouLikeToDo.{Createanaccount, Requestapet}
 import pages._
 import models._
 
@@ -27,20 +27,29 @@ import models._
 class Navigator @Inject()() {
 
   private val normalRoutes: Page => UserAnswers => Call = {
-    case IndexPage => _ => routes.WhatPetLookingForController.onPageLoad(NormalMode)
+    case IndexPage => _ => routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode)
+    case WhatWouldYouLikeToDoPage => whatLikeToDoPageRouting
     case WhatPetLookingForPage => _ => routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
     case WillPetBeAroundChildrenPage => _ => routes.WhenWantPetFromController.onPageLoad(NormalMode)
     case WhenWantPetFromPage => _ => routes.WhenWantPetUntilController.onPageLoad(NormalMode)
     case WhenWantPetUntilPage => _ => routes.CheckYourAnswersController.onPageLoad()
     case PayYourDepositPage => _ => routes.ConfirmationController.onPageLoad()
-    case WhatIsYourNamePage => _ => routes.ConfirmationController.onPageLoad()
-    case WhatIsYourEmailPage => _ => routes.ConfirmationController.onPageLoad()
+    case WhatIsYourNamePage => _ => routes.WhatIsYourEmailController.onPageLoad(NormalMode)
+    case WhatIsYourEmailPage => _ => routes.ChooseLocationController.onPageLoad(NormalMode)
+    case ChooseLocationPage => _ => routes.ConfirmationController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 
   private val checkRouteMap: Page => UserAnswers => Call = {
     case _ => _ => routes.CheckYourAnswersController.onPageLoad()
   }
+
+  private def whatLikeToDoPageRouting: UserAnswers => Call = userAnswers =>
+    userAnswers.get(WhatWouldYouLikeToDoPage) match {
+      case Some(Createanaccount) => routes.WhatIsYourNameController.onPageLoad(NormalMode)
+      case Some(Requestapet) => routes.WhatPetLookingForController.onPageLoad(NormalMode)
+      case _ => routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode)
+    }
 
   def nextPage(page: Page, mode: Mode, userAnswers: UserAnswers): Call = mode match {
     case NormalMode =>

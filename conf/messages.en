@@ -128,3 +128,18 @@ whatIsYourEmail.checkYourAnswersLabel = What is your email?
 whatIsYourEmail.error.required = Enter what your email is
 whatIsYourEmail.error.length = Your email must be 100 characters or less
 whatIsYourEmail.change.hidden = WhatIsYourEmail
+
+chooseLocation.title = Choose location
+chooseLocation.heading = Choose location
+chooseLocation.checkYourAnswersLabel = Choose location
+chooseLocation.error.required = Enter a location
+chooseLocation.error.length = Location must be 100 characters or less
+chooseLocation.change.hidden = ChooseLocation
+
+whatWouldYouLikeToDo.title = What would you like to do?
+whatWouldYouLikeToDo.heading = What would you like to do?
+whatWouldYouLikeToDo.createAnAccount = Create An Account
+whatWouldYouLikeToDo.requestAPet = Request A Pet
+whatWouldYouLikeToDo.checkYourAnswersLabel = What would you like to do?
+whatWouldYouLikeToDo.error.required = Select what would you like to do
+whatWouldYouLikeToDo.change.hidden = WhatWouldYouLikeToDo
