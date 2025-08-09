@@ -34,6 +34,42 @@ class NavigatorSpec extends SpecBase {
         case object UnknownPage extends Page
         navigator.nextPage(UnknownPage, NormalMode, UserAnswers("id")) mustBe routes.IndexController.onPageLoad()
       }
+
+      "must go from What is your name page in the route map to What is your email page" in {
+
+        case object WhatIsYourNamePage extends Page
+        navigator.nextPage(WhatIsYourNamePage, NormalMode, UserAnswers("id")) mustBe routes.WhatIsYourEmailController.onPageLoad(NormalMode)
+      }
+
+      "must go from What is your Email page in the route map to Choose Location page" in {
+
+        case object WhatIsYourEmailPage extends Page
+        navigator.nextPage(WhatIsYourEmailPage, NormalMode, UserAnswers("id")) mustBe routes.ChooseLocationController.onPageLoad(NormalMode)
+      }
+
+      "must go from WhatPetLookingForPage in the route map to WillPetBeAroundChildrenPage" in {
+
+        case object WhatPetLookingForPage extends Page
+        navigator.nextPage(WhatPetLookingForPage, NormalMode, UserAnswers("id")) mustBe routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
+      }
+
+      "must go from WillPetBeAroundChildrenPage in the route map to WhenWantPetFromPage" in {
+
+        case object WillPetBeAroundChildrenPage extends Page
+        navigator.nextPage(WillPetBeAroundChildrenPage, NormalMode, UserAnswers("id")) mustBe routes.WhenWantPetFromController.onPageLoad(NormalMode)
+      }
+
+      "must go from WhenWantPetFromPage in the route map to WhenWantPetUntilPage" in {
+
+        case object WhenWantPetFromPage extends Page
+        navigator.nextPage(WhenWantPetFromPage, NormalMode, UserAnswers("id")) mustBe routes.WhenWantPetUntilController.onPageLoad(NormalMode)
+      }
+
+      "must go from WhenWantPetUntilPage in the route map to CheckYourAnswersPage" in {
+
+        case object WhenWantPetUntilPage extends Page
+        navigator.nextPage(WhenWantPetUntilPage, NormalMode, UserAnswers("id")) mustBe routes.CheckYourAnswersController.onPageLoad()
+      }
     }
 
     "in Check mode" - {

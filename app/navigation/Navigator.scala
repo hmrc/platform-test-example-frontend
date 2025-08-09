@@ -36,7 +36,7 @@ class Navigator @Inject()() {
     case PayYourDepositPage => _ => routes.ConfirmationController.onPageLoad()
     case WhatIsYourNamePage => _ => routes.WhatIsYourEmailController.onPageLoad(NormalMode)
     case WhatIsYourEmailPage => _ => routes.ChooseLocationController.onPageLoad(NormalMode)
-    case ChooseLocationPage => _ => routes.ConfirmationController.onPageLoad()
+    case ChooseLocationPage => _ => routes.CheckYourAnswersController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 
