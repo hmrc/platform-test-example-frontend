@@ -65,7 +65,7 @@ class ChooseLocationController @Inject()(
         value =>
           for {
             updatedAnswers <- Future.fromTry(request.userAnswers.set(ChooseLocationPage, value))
-            _              <- sessionRepository.set(updatedAnswers)
+            _ <- sessionRepository.set(updatedAnswers)
           } yield Redirect(navigator.nextPage(ChooseLocationPage, mode, updatedAnswers))
       )
   }

@@ -21,6 +21,7 @@
     formHelper: FormWithCSRF,
     govukErrorSummary: GovukErrorSummary,
     govukInput: GovukInput,
+    govukSelect: GovukSelect,
     govukButton: GovukButton
 )
 
@@ -34,16 +35,49 @@
             @govukErrorSummary(ErrorSummaryViewModel(form))
         }
 
-        @govukInput(
-            InputViewModel(
-                field = form("value"),
-                label = LabelViewModel(messages("chooseLocation.heading")).asPageHeading()
+        @govukSelect(
+            Select(
+                id = "location-picker-select",
+                name = "location-picker-select",
+                items = Seq(
+                    SelectItem(
+                        value = Some(""),
+                        text = "Select a location"
+                    ),
+                    SelectItem(
+                        value = Some("FR-France"),
+                        text = "France"
+                    ),
+                    SelectItem(
+                        value = Some("DE-Germany"),
+                        text = "Germany"
+                    ),
+                    SelectItem(
+                        value = Some("GB-United_Kingdom"),
+                        text = "United Kingdom"
+                    )
+                ),
+                label = Label(
+                    isPageHeading = true,
+                    classes = "govuk-label--l",
+                    content = Text("Select your Location")
+                ),
+                hint = Some(
+                    Hint(
+                        content = Text("Select between France, Germany and United Kingdom. Submit shows the value as we receive it.")
+                    )),
+                attributes = Map(
+                    "data-show-all-values" -> "false",
+                    "data-auto-select" -> "false",
+                    "data-default-value" -> "",
+                    "data-module" -> "hmrc-accessible-autocomplete"
+                )
             )
-            .withWidth(Full)
         )
 
         @govukButton(
             ButtonViewModel(messages("site.continue"))
         )
     }
+
 }
