@@ -28,7 +28,6 @@ class Navigator @Inject()() {
 
   private val normalRoutes: Page => UserAnswers => Call = {
     case IndexPage => _ => routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode)
-    case WhatWouldYouLikeToDoPage => whatLikeToDoPageRouting
     case WhatPetLookingForPage => _ => routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
     case WillPetBeAroundChildrenPage => _ => routes.WhenWantPetFromController.onPageLoad(NormalMode)
     case WhenWantPetFromPage => _ => routes.WhenWantPetUntilController.onPageLoad(NormalMode)
@@ -37,6 +36,7 @@ class Navigator @Inject()() {
     case WhatIsYourNamePage => _ => routes.WhatIsYourEmailController.onPageLoad(NormalMode)
     case WhatIsYourEmailPage => _ => routes.ChooseLocationController.onPageLoad(NormalMode)
     case ChooseLocationPage => _ => routes.CheckYourAnswersController.onPageLoad()
+    case WhatWouldYouLikeToDoPage => whatLikeToDoPageRouting
     case _ => _ => routes.IndexController.onPageLoad()
   }
 

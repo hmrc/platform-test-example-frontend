@@ -15,9 +15,11 @@
  *@
 
 @import viewmodels.InputWidth._
+@import uk.gov.hmrc.govukfrontend.views.Implicits.RichSelect
+
 
 @this(
-    layout: templates.Layout,
+    layout: templates.AutocompleteLayout,
     formHelper: FormWithCSRF,
     govukErrorSummary: GovukErrorSummary,
     govukInput: GovukInput,
@@ -37,8 +39,8 @@
 
         @govukSelect(
             Select(
-                id = "location-picker-select",
-                name = "location-picker-select",
+                id = "value",
+                name = "value",
                 items = Seq(
                     SelectItem(
                         value = Some(""),
@@ -72,7 +74,7 @@
                     "data-default-value" -> "",
                     "data-module" -> "hmrc-accessible-autocomplete"
                 )
-            )
+            ).asAccessibleAutocomplete()
         )
 
         @govukButton(

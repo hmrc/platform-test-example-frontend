@@ -36,13 +36,18 @@ class NavigatorSpec extends SpecBase {
       }
 
       "must go from What is your name page in the route map to What is your email page" in {
-        case object WhatIsYourNamePage extends Page
-        navigator.nextPage(WhatIsYourNamePage, NormalMode, UserAnswers("id")) mustBe routes.WhatIsYourEmailController.onPageLoad(NormalMode)
+         case object WhatIsYourNamePage extends Page
+        navigator.nextPage(WhatIsYourNamePage, NormalMode,  UserAnswers("id")) mustBe routes.WhatIsYourEmailController.onPageLoad(NormalMode)
       }
 
       "must go from What is your Email page in the route map to Choose Location page" in {
         case object WhatIsYourEmailPage extends Page
         navigator.nextPage(WhatIsYourEmailPage, NormalMode, UserAnswers("id")) mustBe routes.ChooseLocationController.onPageLoad(NormalMode)
+      }
+
+      "must go from Choose location page in the route map to check your answers page" in {
+        case object ChooseLocationPage extends Page
+        navigator.nextPage(ChooseLocationPage, NormalMode, UserAnswers("id")) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
 
       "must go from WhatPetLookingForPage in the route map to WillPetBeAroundChildrenPage" in {
