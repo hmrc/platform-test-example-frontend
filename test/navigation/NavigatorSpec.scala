@@ -53,43 +53,43 @@ class NavigatorSpec extends SpecBase {
       }
 
       "must go from What is your name page in the route map to What is your email page" in {
-        val userAnswers = UserAnswers("id").set(WhatIsYourNamePage,"PersonName").success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WhatIsYourNamePage,"PersonName").success.value
 
         navigator.nextPage(WhatIsYourNamePage, NormalMode,userAnswers) mustBe routes.WhatIsYourEmailController.onPageLoad(NormalMode)
       }
 
       "must go from What is your Email page in the route map to Choose Location page" in {
-        val userAnswers = emptyUserAnswers.set(WhatIsYourEmailPage, "EmailAddress").success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WhatIsYourEmailPage, "EmailAddress").success.value
 
         navigator.nextPage(WhatIsYourEmailPage, NormalMode, userAnswers) mustBe routes.ChooseLocationController.onPageLoad(NormalMode)
       }
 
       "must go from Choose location page in the route map to check your answers page" in {
-        val userAnswers = emptyUserAnswers.set(ChooseLocationPage, "DE-Germany").success.value
+        val userAnswers = UserAnswers(userAnswersId).set(ChooseLocationPage, "DE-Germany").success.value
         navigator.nextPage(ChooseLocationPage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
 
       "must go from WhatPetLookingForPage in the route map to WillPetBeAroundChildrenPage" in {
 
-        val userAnswers = emptyUserAnswers.set(WhatPetLookingForPage, Cat).success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WhatPetLookingForPage, Cat).success.value
         navigator.nextPage(WhatPetLookingForPage, NormalMode, userAnswers) mustBe routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
       }
 
       "must go from WillPetBeAroundChildrenPage in the route map to WhenWantPetFromPage" in {
-        val userAnswers = emptyUserAnswers.set(WillPetBeAroundChildrenPage, true).success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WillPetBeAroundChildrenPage, true).success.value
         navigator.nextPage(WillPetBeAroundChildrenPage, NormalMode, userAnswers) mustBe routes.WhenWantPetFromController.onPageLoad(NormalMode)
       }
 
       "must go from WhenWantPetFromPage in the route map to WhenWantPetUntilPage" in {
         val startDate = LocalDate.now()
-        val userAnswers = emptyUserAnswers.set(WhenWantPetFromPage, startDate).success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WhenWantPetFromPage, startDate).success.value
 
         navigator.nextPage(WhenWantPetFromPage, NormalMode, userAnswers) mustBe routes.WhenWantPetUntilController.onPageLoad(NormalMode)
       }
 
       "must go from WhenWantPetUntilPage in the route map to CheckYourAnswersPage" in {
         val endDate = LocalDate.now()
-        val userAnswers = emptyUserAnswers.set(WhenWantPetUntilPage, endDate).success.value
+        val userAnswers = UserAnswers(userAnswersId).set(WhenWantPetUntilPage, endDate).success.value
 
         navigator.nextPage(WhenWantPetUntilPage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
