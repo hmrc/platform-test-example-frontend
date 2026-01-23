@@ -25,7 +25,6 @@ import viewmodels.checkAnswers.{WhatPetLookingForSummary, WhenWantPetFromSummary
 import viewmodels.govuk.summarylist._
 import views.html.CheckYourAnswersView
 import models.{Mode, NormalMode}
-import pages.WhenWantPetFromPage
 
 import scala.concurrent.{ExecutionContext, Future}
 

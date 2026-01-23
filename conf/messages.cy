@@ -112,3 +112,40 @@ confirmation.emailConfirmation = Rydym wedi anfon e-bost cadarnhau atoch.
 confirmation.whatHappensNext = Beth sy’n digwydd nesaf
 confirmation.p1 = Rydym wedi anfon eich cais i'r swyddfa ceisiadau am anifeiliaid anwes.
 confirmation.p2 = Byddant yn cysylltu â chi naill ai i gadarnhau eich cais, neu i ofyn am fwy o wybodaeth.
+
+whatIsYourName.title = Beth yw eich enw?
+whatIsYourName.heading = Beth yw eich enw?
+whatIsYourName.checkYourAnswersLabel = Beth yw eich enw?
+whatIsYourName.error.required = Nodwch eich enw
+whatIsYourName.error.length = Rhaid i’ch enw fod yn 100 o gymeriadau neu lai
+whatIsYourName.change.hidden = Beth yw eich enw?
+
+whatIsYourEmail.title = Beth yw eich e-bost?
+whatIsYourEmail.heading = Beth yw eich e-bost?
+whatIsYourEmail.checkYourAnswersLabel = Beth yw eich e-bost?
+whatIsYourEmail.error.required = Nodwch eich e-bost
+whatIsYourEmail.error.length = Rhaid i’ch e-bost fod yn 100 o gymeriadau neu lai
+whatIsYourEmail.change.hidden = Beth yw eich e-bost?
+
+whatWouldYouLikeToDo.title = Beth hoffech chi ei wneud?
+whatWouldYouLikeToDo.heading = Beth hoffech chi ei wneud?
+whatWouldYouLikeToDo.createAnAccount = Creu cyfrif
+whatWouldYouLikeToDo.requestAPet = Gwneud cais am anifail anwes
+whatWouldYouLikeToDo.checkYourAnswersLabel = Beth hoffech chi ei wneud?
+whatWouldYouLikeToDo.error.required = Dewiswch beth hoffech chi ei wneud
+whatWouldYouLikeToDo.change.hidden = Beth hoffech chi ei wneud?
+
+chooseLocation.title = Dewiswch leoliad
+chooseLocation.heading = Dewiswch leoliad
+chooseLocation.hint = Dewiswch rhwng Ffrainc, Yr Almaen a’r Deyrnas Unedig. Bydd cyflwyno’n dangos y gwerth fel y’i derbynnir.
+chooseLocation.content = Dewiswch eich lleoliad
+chooseLocation.checkYourAnswersLabel = Dewiswch leoliad
+chooseLocation.error.required = Nodwch leoliad
+chooseLocation.error.length = Rhaid i leoliad fod yn 100 o gymeriadau neu lai
+chooseLocation.change.hidden = Dewiswch leoliad
+chooseLocation.value.1 = FR-Ffrainc
+chooseLocation.text.1 = Ffrainc
+chooseLocation.value.2 = DE-Yr Almaen
+chooseLocation.text.2 = Yr Almaen
+chooseLocation.value.3 = GB-Y Deyrnas Unedig
+chooseLocation.text.3 = Y Deyrnas Unedig

@@ -34,7 +34,7 @@ class IndexController @Inject()(
                                  identify: IdentifierAction,
                                  getData: DataRetrievalAction,
                                  sessionRepository: SessionRepository,
-                                 navigator: Navigator,
+                                 navigator: Navigator
                                )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport {
 
 
