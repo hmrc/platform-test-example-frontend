@@ -129,13 +129,6 @@ whatIsYourEmail.error.required = Enter what your email is
 whatIsYourEmail.error.length = Your email must be 100 characters or less
 whatIsYourEmail.change.hidden = WhatIsYourEmail
 
-chooseLocation.title = Choose location
-chooseLocation.heading = Choose location
-chooseLocation.checkYourAnswersLabel = Choose location
-chooseLocation.error.required = Enter a location
-chooseLocation.error.length = Location must be 100 characters or less
-chooseLocation.change.hidden = ChooseLocation
-
 whatWouldYouLikeToDo.title = What would you like to do?
 whatWouldYouLikeToDo.heading = What would you like to do?
 whatWouldYouLikeToDo.createAnAccount = Create An Account
@@ -143,3 +136,18 @@ whatWouldYouLikeToDo.requestAPet = Request A Pet
 whatWouldYouLikeToDo.checkYourAnswersLabel = What would you like to do?
 whatWouldYouLikeToDo.error.required = Select what would you like to do
 whatWouldYouLikeToDo.change.hidden = WhatWouldYouLikeToDo
+
+chooseLocation.title = Choose location
+chooseLocation.heading = Choose location
+chooseLocation.hint = Select between France, Germany and United Kingdom. Submit shows the value as we receive it.
+chooseLocation.content = Choose your location
+chooseLocation.checkYourAnswersLabel = Choose location
+chooseLocation.error.required = Enter a location
+chooseLocation.error.length = Location must be 100 characters or less
+chooseLocation.change.hidden = ChooseLocation
+chooseLocation.value.1 = FR-France
+chooseLocation.text.1 = France
+chooseLocation.value.2 = DE-Germany
+chooseLocation.text.2 = Germany
+chooseLocation.value.3 = GB-United_Kingdom
+chooseLocation.text.3 = United Kingdom

@@ -44,29 +44,29 @@
                 items = Seq(
                     SelectItem(
                         value = Some(""),
-                        text = "Select a location"
+                        text = messages("chooseLocation.content")
                     ),
                     SelectItem(
-                        value = Some("FR-France"),
-                        text = "France"
+                        value = Some(messages("chooseLocation.value.1")),
+                        text = messages("chooseLocation.text.1")
                     ),
                     SelectItem(
-                        value = Some("DE-Germany"),
-                        text = "Germany"
+                        value = Some(messages("chooseLocation.value.2")),
+                        text = messages("chooseLocation.text.2")
                     ),
                     SelectItem(
-                        value = Some("GB-United_Kingdom"),
-                        text = "United Kingdom"
+                        value = Some(messages("chooseLocation.value.3")),
+                        text = messages("chooseLocation.text.3")
                     )
                 ),
                 label = Label(
                     isPageHeading = true,
                     classes = "govuk-label--l",
-                    content = Text("Select your Location")
+                    content = messages("chooseLocation.content")
                 ),
                 hint = Some(
                     Hint(
-                        content = Text("Select between France, Germany and United Kingdom. Submit shows the value as we receive it.")
+                        content = messages("chooseLocation.hint")
                     )),
                 attributes = Map(
                     "data-show-all-values" -> "false",
