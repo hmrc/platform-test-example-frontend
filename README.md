@@ -1,7 +1,7 @@
 
 # platform-test-example-frontend
 
-This is a Example Frontend that the Platform Test team will use for examples of good testing standards and guidance. 
+The Platform Test team use this project to demonstrate how to write good tests and provide guidance on testing best practices.
 
 ### License
 
