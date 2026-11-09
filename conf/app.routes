@@ -69,3 +69,8 @@ GET        /whatWouldYouLikeToDo                        controllers.WhatWouldYou
 POST       /whatWouldYouLikeToDo                        controllers.WhatWouldYouLikeToDoController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatWouldYouLikeToDo                  controllers.WhatWouldYouLikeToDoController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatWouldYouLikeToDo                  controllers.WhatWouldYouLikeToDoController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsYourDOB                           controllers.WhatIsYourDOBController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsYourDOB                           controllers.WhatIsYourDOBController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsYourDOB                     controllers.WhatIsYourDOBController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsYourDOB                     controllers.WhatIsYourDOBController.onSubmit(mode: Mode = CheckMode)

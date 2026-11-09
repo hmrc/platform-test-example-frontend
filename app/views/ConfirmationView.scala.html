@@ -16,16 +16,22 @@
 
 @this(
         layout: templates.Layout,
-        govukButton: GovukButton,
         govukPanel : GovukPanel
 )
 
-@()(implicit request: Request[_], messages: Messages)
+@(journey: models.WhatWouldYouLikeToDo)(implicit request: Request[_], messages: Messages)
 
-@layout(pageTitle = titleNoForm(messages("confirmation.title"))) {
+@confirmationKey = @{
+    journey match {
+        case models.WhatWouldYouLikeToDo.Requestapet => "confirmation.requestPet"
+        case models.WhatWouldYouLikeToDo.Createanaccount => "confirmation.createAccount"
+    }
+}
+
+@layout(pageTitle = titleNoForm(messages(s"$confirmationKey.title"))) {
 
  @govukPanel(Panel(
-  title = messages("confirmation.heading"),
+  title = messages(s"$confirmationKey.heading"),
   content = HtmlContent(messages("confirmation.reference") + "<br><strong>HDJ2123F</strong>" )
  ))
 
