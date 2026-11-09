@@ -163,3 +163,11 @@ whatIsYourDOB.error.required.two = Rhaid i'r dyddiad gynnwys {0} a {1}
 whatIsYourDOB.error.required = Rhaid i'r dyddiad gynnwys {0}
 whatIsYourDOB.error.invalid = Nodwch ddyddiad dilys
 whatIsYourDOB.change.hidden = Beth yw eich dyddiad geni?
+
+whatPetLike.title = Ydych chi'n hoffi cathod neu gŵn?
+whatPetLike.heading = Ydych chi'n hoffi cathod neu gŵn?
+whatPetLike.cats = Cathod
+whatPetLike.dogs = Cŵn
+whatPetLike.checkYourAnswersLabel = Ydych chi'n hoffi cathod neu gŵn?
+whatPetLike.error.required = Dewiswch a ydych chi'n hoffi cathod neu gŵn
+whatPetLike.change.hidden = Ydych chi'n hoffi cathod neu gŵn?
