@@ -64,9 +64,15 @@ class NavigatorSpec extends SpecBase {
         navigator.nextPage(WhatIsYourEmailPage, NormalMode, userAnswers) mustBe routes.ChooseLocationController.onPageLoad(NormalMode)
       }
 
-      "must go from Choose location page in the route map to check your answers page" in {
+      "must go from Choose location page in the route map to What is your date of birth page" in {
         val userAnswers = UserAnswers(userAnswersId).set(ChooseLocationPage, "DE-Germany").success.value
-        navigator.nextPage(ChooseLocationPage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
+        navigator.nextPage(ChooseLocationPage, NormalMode, userAnswers) mustBe routes.WhatIsYourDOBController.onPageLoad(NormalMode)
+      }
+
+      "must go from What is your date of birth page in the route map to check your answers page" in {
+        val dateOfBirth = LocalDate.of(2007, 11, 27)
+        val userAnswers = UserAnswers(userAnswersId).set(WhatIsYourDOBPage, dateOfBirth).success.value
+        navigator.nextPage(WhatIsYourDOBPage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
 
       "must go from WhatPetLookingForPage in the route map to WillPetBeAroundChildrenPage" in {

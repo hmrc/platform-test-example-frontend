@@ -107,6 +107,10 @@ payYourDeposit.RollNumber.change.hidden = Rhif rôl
 
 confirmation.title = Cais am anifail anwes
 confirmation.heading = Cais am anifail anwes
+confirmation.requestPet.title = Cais am anifail anwes
+confirmation.requestPet.heading = Cais am anifail anwes
+confirmation.createAccount.title = Cyfrif wedi’i greu
+confirmation.createAccount.heading = Cyfrif wedi’i greu
 confirmation.reference = Eich rhif cyfeirnod
 confirmation.emailConfirmation = Rydym wedi anfon e-bost cadarnhau atoch.
 confirmation.whatHappensNext = Beth sy’n digwydd nesaf
@@ -149,3 +153,13 @@ chooseLocation.value.2 = DE-Yr Almaen
 chooseLocation.text.2 = Yr Almaen
 chooseLocation.value.3 = GB-Y Deyrnas Unedig
 chooseLocation.text.3 = Y Deyrnas Unedig
+
+whatIsYourDOB.title = Beth yw eich dyddiad geni?
+whatIsYourDOB.heading = Beth yw eich dyddiad geni?
+whatIsYourDOB.hint = Er enghraifft, 27 11 2007.
+whatIsYourDOB.checkYourAnswersLabel = Beth yw eich dyddiad geni?
+whatIsYourDOB.error.required.all = Nodwch eich dyddiad geni
+whatIsYourDOB.error.required.two = Rhaid i'r dyddiad gynnwys {0} a {1}
+whatIsYourDOB.error.required = Rhaid i'r dyddiad gynnwys {0}
+whatIsYourDOB.error.invalid = Nodwch ddyddiad dilys
+whatIsYourDOB.change.hidden = Beth yw eich dyddiad geni?

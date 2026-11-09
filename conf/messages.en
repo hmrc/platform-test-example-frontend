@@ -107,8 +107,10 @@ payYourDeposit.SortCode.change.hidden = SortCode
 payYourDeposit.AccountNumber.change.hidden = AccountNumber
 payYourDeposit.RollNumber.change.hidden = RollNumber
 
-confirmation.title = Pet requested
-confirmation.heading = Pet requested
+confirmation.requestPet.title = Pet requested
+confirmation.requestPet.heading = Pet requested
+confirmation.createAccount.title = Account created
+confirmation.createAccount.heading = Account created
 confirmation.reference = Your reference number
 confirmation.emailConfirmation = We have sent you a confirmation email.
 confirmation.whatHappensNext = What happens next
@@ -151,3 +153,13 @@ chooseLocation.value.2 = DE-Germany
 chooseLocation.text.2 = Germany
 chooseLocation.value.3 = GB-United_Kingdom
 chooseLocation.text.3 = United Kingdom
+
+whatIsYourDOB.title = What is your date of birth?
+whatIsYourDOB.heading = What is your date of birth?
+whatIsYourDOB.hint = For example, 27 11 2007.
+whatIsYourDOB.checkYourAnswersLabel = What is your date of birth?
+whatIsYourDOB.error.required.all = Enter your date of birth
+whatIsYourDOB.error.required.two = The date must include {0} and {1}
+whatIsYourDOB.error.required = The date must include {0}
+whatIsYourDOB.error.invalid = Enter a real date
+whatIsYourDOB.change.hidden = WhatIsYourDateOfBirth

@@ -18,15 +18,15 @@ package controllers
 
 import com.google.inject.Inject
 import controllers.actions.{DataRequiredAction, DataRetrievalAction, IdentifierAction}
+import models.WhatWouldYouLikeToDo.{Createanaccount, Requestapet}
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
-import viewmodels.checkAnswers.{WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary}
-import viewmodels.govuk.summarylist._
+import viewmodels.checkAnswers.{ChooseLocationSummary, WhatIsYourDOBSummary, WhatIsYourEmailSummary, WhatIsYourNameSummary, WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary}
+import viewmodels.govuk.summarylist.*
 import views.html.CheckYourAnswersView
-import models.{Mode, NormalMode}
-
-import scala.concurrent.{ExecutionContext, Future}
+import models.NormalMode
+import pages.WhatWouldYouLikeToDoPage
 
 class CheckYourAnswersController @Inject()(
                                             override val messagesApi: MessagesApi,
@@ -37,22 +37,55 @@ class CheckYourAnswersController @Inject()(
                                             view: CheckYourAnswersView
                                           ) extends FrontendBaseController with I18nSupport {
 
-  def onPageLoad(): Action[AnyContent] = (identify andThen getData andThen requireData) {
-    implicit request =>
+  def onPageLoad(): Action[AnyContent] =
+    (identify andThen getData andThen requireData) {
+      implicit request =>
 
-      val list = SummaryListViewModel(
-        Seq(
-          WhatPetLookingForSummary.row(request.userAnswers),
-          WillPetBeAroundChildrenSummary.row(request.userAnswers),
-          WhenWantPetFromSummary.row(request.userAnswers),
-          WhenWantPetUntilSummary.row(request.userAnswers)
-        ).flatten
-      )
-      Ok(view(list))
-  }
+        val answers = request.userAnswers
 
-  def onSubmit: Action[AnyContent] = (identify andThen getData andThen requireData).async {
-    implicit request =>
-      Future.successful(Redirect(routes.PayYourDepositController.onPageLoad(mode = NormalMode)))
-  }
+        answers.get(WhatWouldYouLikeToDoPage) match {
+          case Some(Requestapet) =>
+            val list = SummaryListViewModel(
+              Seq(
+                WhatPetLookingForSummary.row(answers),
+                WillPetBeAroundChildrenSummary.row(answers),
+                WhenWantPetFromSummary.row(answers),
+                WhenWantPetUntilSummary.row(answers)
+              ).flatten
+            )
+            Ok(view(list))
+
+          case Some(Createanaccount) =>
+            val list = SummaryListViewModel(
+              Seq(
+                WhatIsYourNameSummary.row(answers),
+                WhatIsYourEmailSummary.row(answers),
+                ChooseLocationSummary.row(answers),
+                WhatIsYourDOBSummary.row(answers)
+              ).flatten
+            )
+            Ok(view(list))
+
+          case None =>
+            Redirect(
+              routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode)
+            )
+        }
+    }
+
+  def onSubmit: Action[AnyContent] =
+    (identify andThen getData andThen requireData) {
+      implicit request =>
+
+        request.userAnswers.get(WhatWouldYouLikeToDoPage) match {
+          case Some(Requestapet) =>
+            Redirect(routes.PayYourDepositController.onPageLoad(NormalMode))
+
+          case Some(Createanaccount) =>
+            Redirect(routes.ConfirmationController.onPageLoad())
+
+          case None =>
+            Redirect(routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode))
+        }
+    }
 }

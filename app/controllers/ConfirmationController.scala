@@ -18,6 +18,8 @@ package controllers
 
 import controllers.actions._
 import javax.inject.Inject
+import models.NormalMode
+import pages.WhatWouldYouLikeToDoPage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
@@ -34,6 +36,9 @@ class ConfirmationController @Inject()(
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) {
     implicit request =>
-      Ok(view())
+      request.userAnswers.get(WhatWouldYouLikeToDoPage) match {
+        case Some(journey) => Ok(view(journey))
+        case None          => Redirect(routes.WhatWouldYouLikeToDoController.onPageLoad(NormalMode))
+      }
   }
 }

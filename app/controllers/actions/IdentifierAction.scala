@@ -30,7 +30,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 trait IdentifierAction extends ActionBuilder[IdentifierRequest, AnyContent] with ActionFunction[Request, IdentifierRequest]
 
-  class SessionIdentifierAction @Inject()(
+class SessionIdentifierAction @Inject()(
                                            val parser: BodyParsers.Default
                                          )
                                          (implicit val executionContext: ExecutionContext) extends IdentifierAction {
