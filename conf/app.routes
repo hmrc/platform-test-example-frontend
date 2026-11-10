@@ -79,3 +79,8 @@ GET        /whatPetLike                              controllers.WhatPetLikeCont
 POST       /whatPetLike                              controllers.WhatPetLikeController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatPetLike                        controllers.WhatPetLikeController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatPetLike                        controllers.WhatPetLikeController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatNationality                        controllers.WhatNationalityController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatNationality                        controllers.WhatNationalityController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatNationality                  controllers.WhatNationalityController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatNationality                  controllers.WhatNationalityController.onSubmit(mode: Mode = CheckMode)

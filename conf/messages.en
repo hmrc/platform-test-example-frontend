@@ -171,3 +171,12 @@ whatPetLike.dogs = Dogs
 whatPetLike.checkYourAnswersLabel = Do you like cats or dogs?
 whatPetLike.error.required = Select what pet you like
 whatPetLike.change.hidden = WhatPetLike
+
+whatNationality.title = What is your nationality?
+whatNationality.heading = What is your nationality?
+whatNationality.british = British
+whatNationality.irish = Irish
+whatNationality.other = Other
+whatNationality.checkYourAnswersLabel = What is your nationality?
+whatNationality.error.required = Select at least one nationality
+whatNationality.change.hidden = whatNationality
