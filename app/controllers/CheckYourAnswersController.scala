@@ -22,7 +22,7 @@ import models.WhatWouldYouLikeToDo.{Createanaccount, Requestapet}
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
-import viewmodels.checkAnswers.{ChooseLocationSummary, WhatIsYourDOBSummary, WhatIsYourEmailSummary, WhatIsYourNameSummary, WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary}
+import viewmodels.checkAnswers.{ChooseLocationSummary, WhatIsYourDOBSummary, WhatIsYourEmailSummary, WhatIsYourNameSummary, WhatPetLikeSummary, WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary}
 import viewmodels.govuk.summarylist.*
 import views.html.CheckYourAnswersView
 import models.NormalMode
@@ -61,7 +61,8 @@ class CheckYourAnswersController @Inject()(
                 WhatIsYourNameSummary.row(answers),
                 WhatIsYourEmailSummary.row(answers),
                 ChooseLocationSummary.row(answers),
-                WhatIsYourDOBSummary.row(answers)
+                WhatIsYourDOBSummary.row(answers),
+                WhatPetLikeSummary.row(answers)
               ).flatten
             )
             Ok(view(list))

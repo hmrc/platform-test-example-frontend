@@ -18,13 +18,14 @@ package controllers
 
 import base.SpecBase
 import models.NormalMode
+import models.WhatPetLike.Cats
 import models.WhatPetLookingFor.Cat
 import models.WhatWouldYouLikeToDo.{Createanaccount, Requestapet}
-import pages._
+import pages.*
 import play.api.i18n.Messages
 import play.api.test.FakeRequest
-import play.api.test.Helpers._
-import viewmodels.checkAnswers._
+import play.api.test.Helpers.*
+import viewmodels.checkAnswers.*
 import viewmodels.govuk.SummaryListFluency
 import views.html.CheckYourAnswersView
 
@@ -41,6 +42,7 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
     .set(WhatIsYourEmailPage, "example@example.com").success.value
     .set(ChooseLocationPage, "GB-United Kingdom").success.value
     .set(WhatIsYourDOBPage, LocalDate.of(2007, 11, 27)).success.value
+    .set(WhatPetLikePage, Cats).success.value
 
   "Check Your Answers Controller" - {
 
@@ -83,11 +85,12 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
           WhatIsYourNameSummary.row(answers),
           WhatIsYourEmailSummary.row(answers),
           ChooseLocationSummary.row(answers),
-          WhatIsYourDOBSummary.row(answers)
+          WhatIsYourDOBSummary.row(answers),
+          WhatPetLikeSummary.row(answers)
         ).flatten
         val list = SummaryListViewModel(rows)
 
-        rows.size mustEqual 4
+        rows.size mustEqual 5
         status(result) mustEqual OK
         contentAsString(result) mustEqual view(list)(request, messages(application)).toString
       }

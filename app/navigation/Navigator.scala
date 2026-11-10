@@ -36,7 +36,8 @@ class Navigator @Inject()() {
     case WhatIsYourNamePage => _ => routes.WhatIsYourEmailController.onPageLoad(NormalMode)
     case WhatIsYourEmailPage => _ => routes.ChooseLocationController.onPageLoad(NormalMode)
     case ChooseLocationPage => _ => routes.WhatIsYourDOBController.onPageLoad(NormalMode)
-    case WhatIsYourDOBPage => _ => routes.CheckYourAnswersController.onPageLoad()
+    case WhatIsYourDOBPage => _ => routes.WhatPetLikeController.onPageLoad(NormalMode)
+    case WhatPetLikePage => _ => routes.CheckYourAnswersController.onPageLoad()
     case WhatWouldYouLikeToDoPage => whatLikeToDoPageRouting
     case _ => _ => routes.IndexController.onPageLoad()
   }

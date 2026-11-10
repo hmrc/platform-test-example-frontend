@@ -18,6 +18,7 @@ package navigation
 
 import base.SpecBase
 import controllers.routes
+import models.WhatPetLike._
 import models.WhatPetLookingFor._
 import models.WhatWouldYouLikeToDo._
 import pages._
@@ -69,14 +70,18 @@ class NavigatorSpec extends SpecBase {
         navigator.nextPage(ChooseLocationPage, NormalMode, userAnswers) mustBe routes.WhatIsYourDOBController.onPageLoad(NormalMode)
       }
 
-      "must go from What is your date of birth page in the route map to check your answers page" in {
+      "must go from What is your date of birth page in the route map to WhatPetLikePage" in {
         val dateOfBirth = LocalDate.of(2007, 11, 27)
         val userAnswers = UserAnswers(userAnswersId).set(WhatIsYourDOBPage, dateOfBirth).success.value
-        navigator.nextPage(WhatIsYourDOBPage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
+        navigator.nextPage(WhatIsYourDOBPage, NormalMode, userAnswers) mustBe routes.WhatPetLikeController.onPageLoad(NormalMode)
+      }
+
+      "must go from WhenWantPetFromPage in the route map to CheckYourAnswersPage" in {
+        val userAnswers = UserAnswers(userAnswersId).set(WhatPetLikePage, Cats).success.value
+        navigator.nextPage(WhatPetLikePage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
 
       "must go from WhatPetLookingForPage in the route map to WillPetBeAroundChildrenPage" in {
-
         val userAnswers = UserAnswers(userAnswersId).set(WhatPetLookingForPage, Cat).success.value
         navigator.nextPage(WhatPetLookingForPage, NormalMode, userAnswers) mustBe routes.WillPetBeAroundChildrenController.onPageLoad(NormalMode)
       }
