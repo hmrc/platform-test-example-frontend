@@ -17,7 +17,7 @@
 package controllers
 
 import controllers.actions.*
-import forms.{WhatPetLikeFormProvider, WhatPetLookingForFormProvider}
+import forms.WhatPetLikeFormProvider
 
 import javax.inject.Inject
 import models.Mode

@@ -171,3 +171,12 @@ whatPetLike.dogs = Cŵn
 whatPetLike.checkYourAnswersLabel = Ydych chi'n hoffi cathod neu gŵn?
 whatPetLike.error.required = Dewiswch a ydych chi'n hoffi cathod neu gŵn
 whatPetLike.change.hidden = Ydych chi'n hoffi cathod neu gŵn?
+
+whatNationality.title = Beth yw eich cenedligrwydd?
+whatNationality.heading = Beth yw eich cenedligrwydd?
+whatNationality.british = Prydeinig
+whatNationality.irish = Gwyddelig
+whatNationality.other = Arall
+whatNationality.checkYourAnswersLabel = Beth yw eich cenedligrwydd?
+whatNationality.error.required = Dewiswch o leiaf un cenedligrwydd
+whatNationality.change.hidden = Beth yw eich cenedligrwydd?
