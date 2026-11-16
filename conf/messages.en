@@ -180,3 +180,11 @@ whatNationality.other = Other
 whatNationality.checkYourAnswersLabel = What is your nationality?
 whatNationality.error.required = Select at least one nationality
 whatNationality.change.hidden = whatNationality
+
+uploadFile.title = Upload your photo ID
+uploadFile.label = Upload your photo ID
+uploadFile.hint = For testing, upload any non-empty file instead of real photo ID. The selected file must be smaller than 100MB.
+uploadFile.error.required = Select a file to upload as your photo ID. The file must not be empty.
+uploadFile.error.size = The selected file must be smaller than 100MB
+uploadFile.checkYourAnswersLabel = Photo ID
+uploadFile.change.hidden = photo ID

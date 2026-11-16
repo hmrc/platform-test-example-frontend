@@ -43,6 +43,7 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
     .set(ChooseLocationPage, "GB-United Kingdom").success.value
     .set(WhatIsYourDOBPage, LocalDate.of(2007, 11, 27)).success.value
     .set(WhatPetLikePage, Cats).success.value
+    .set(UploadFilePage, "photo-id.jpg").success.value
 
   "Check Your Answers Controller" - {
 
@@ -86,13 +87,32 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
           WhatIsYourEmailSummary.row(answers),
           ChooseLocationSummary.row(answers),
           WhatIsYourDOBSummary.row(answers),
+          UploadFileSummary.row(answers),
           WhatPetLikeSummary.row(answers)
         ).flatten
         val list = SummaryListViewModel(rows)
 
-        rows.size mustEqual 5
+        rows.size mustEqual 6
         status(result) mustEqual OK
         contentAsString(result) mustEqual view(list)(request, messages(application)).toString
+        contentAsString(result) must include("photo-id.jpg")
+        contentAsString(result) must include("Photo ID")
+        contentAsString(result) must include(routes.UploadFileController.onPageLoad(models.CheckMode).url)
+      }
+    }
+
+    "must escape the uploaded filename in the summary" in {
+      val answers = allAnswers
+        .set(WhatWouldYouLikeToDoPage, Createanaccount).success.value
+        .set(UploadFilePage, "<script>alert(1)</script>.jpg").success.value
+      val application = applicationBuilder(userAnswers = Some(answers)).build()
+
+      running(application) {
+        val result = route(application, FakeRequest(GET, routes.CheckYourAnswersController.onPageLoad().url)).value
+
+        status(result) mustEqual OK
+        contentAsString(result) must not include "<script>alert(1)</script>.jpg"
+        contentAsString(result) must include("&lt;script&gt;")
       }
     }
 

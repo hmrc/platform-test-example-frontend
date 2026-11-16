@@ -77,12 +77,16 @@ class NavigatorSpec extends SpecBase {
         navigator.nextPage(WhatIsYourDOBPage, NormalMode, userAnswers) mustBe routes.WhatNationalityController.onPageLoad(NormalMode)
       }
 
-      "must go from WhatNationalityPage in the route map to WhatPetLikePage" in {
+      "must go from WhatNationalityPage in the route map to UploadFilePage" in {
         val userAnswers = UserAnswers(userAnswersId).set(WhatNationalityPage, Set(British)).success.value
-        navigator.nextPage(WhatNationalityPage, NormalMode, userAnswers) mustBe routes.WhatPetLikeController.onPageLoad(NormalMode)
+        navigator.nextPage(WhatNationalityPage, NormalMode, userAnswers) mustBe routes.UploadFileController.onPageLoad(NormalMode)
       }
 
-      "must go from WhatPetLikePage in the route map to CheckYourAnswersPage" in {
+      "must go from UploadFilePage to WhatPetLikePage" in {
+        navigator.nextPage(UploadFilePage, NormalMode, emptyUserAnswers) mustBe routes.WhatPetLikeController.onPageLoad(NormalMode)
+      }
+
+      "must go from WhatPetLikePage in the route map to CheckYourAnswers" in {
         val userAnswers = UserAnswers(userAnswersId).set(WhatPetLikePage, Cats).success.value
         navigator.nextPage(WhatPetLikePage, NormalMode, userAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
@@ -113,6 +117,10 @@ class NavigatorSpec extends SpecBase {
     }
 
     "in Check mode" - {
+
+      "must go from UploadFilePage back to CheckYourAnswers" in {
+        navigator.nextPage(UploadFilePage, CheckMode, emptyUserAnswers) mustBe routes.CheckYourAnswersController.onPageLoad()
+      }
 
       "must go from a page that doesn't exist in the edit route map to CheckYourAnswers" in {
 

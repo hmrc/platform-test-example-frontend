@@ -1,0 +1,58 @@
+@*
+ * Copyright 2025 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@this(
+    layout: templates.Layout,
+    formHelper: FormWithCSRF,
+    govukErrorSummary: GovukErrorSummary,
+    govukButton: GovukButton,
+    govukFileUpload: GovukFileUpload
+)
+
+@(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages)
+
+@layout(pageTitle = title(form, messages("uploadFile.title"))) {
+
+    @formHelper(action = routes.UploadFileController.onSubmit(mode), Symbol("enctype") -> "multipart/form-data") {
+        @if(form.errors.nonEmpty) {
+            @govukErrorSummary(ErrorSummaryViewModel(form))
+        }
+
+        @govukFileUpload(
+            FileUpload(
+                name = "file-upload-1",
+                id = "file-upload-1",
+                label = Label(
+                    isPageHeading = true,
+                    classes = "govuk-label--l",
+                    content = Text(messages("uploadFile.label"))
+                ),
+                hint = Some(
+                    Hint(
+                        content = Text(messages("uploadFile.hint"))
+                    )
+                ),
+                errorMessage = form("file-upload-1").error.map(error =>
+                    ErrorMessage(content = Text(messages(error.message)))
+                ),
+                javascript = Some(true)
+            )
+        )
+        @govukButton(
+            ButtonViewModel(messages("site.continue"))
+        )
+    }
+}

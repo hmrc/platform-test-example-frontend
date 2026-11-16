@@ -23,6 +23,7 @@ import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
 import viewmodels.checkAnswers.{ChooseLocationSummary, WhatIsYourDOBSummary, WhatIsYourEmailSummary, WhatIsYourNameSummary, WhatPetLikeSummary, WhatPetLookingForSummary, WhenWantPetFromSummary, WhenWantPetUntilSummary, WillPetBeAroundChildrenSummary, WhatNationalitySummary}
+import viewmodels.checkAnswers.UploadFileSummary
 import viewmodels.govuk.summarylist.*
 import views.html.CheckYourAnswersView
 import models.NormalMode
@@ -62,8 +63,9 @@ class CheckYourAnswersController @Inject()(
                 WhatIsYourEmailSummary.row(answers),
                 ChooseLocationSummary.row(answers),
                 WhatIsYourDOBSummary.row(answers),
-                WhatPetLikeSummary.row(answers),
-                WhatNationalitySummary.row(answers)
+                WhatNationalitySummary.row(answers),
+                UploadFileSummary.row(answers),
+                WhatPetLikeSummary.row(answers)
               ).flatten
             )
             Ok(view(list))
