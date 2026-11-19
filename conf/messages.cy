@@ -180,3 +180,11 @@ whatNationality.other = Arall
 whatNationality.checkYourAnswersLabel = Beth yw eich cenedligrwydd?
 whatNationality.error.required = Dewiswch o leiaf un cenedligrwydd
 whatNationality.change.hidden = Beth yw eich cenedligrwydd?
+
+uploadFile.title = Uwchlwythwch eich dogfen adnabod â llun
+uploadFile.label = Uwchlwythwch eich dogfen adnabod â llun
+uploadFile.hint = Ar gyfer profi, uwchlwythwch unrhyw ffeil nad yw'n wag yn lle dogfen adnabod â llun go iawn. Rhaid i'r ffeil a ddewisir fod yn llai na 100MB.
+uploadFile.error.required = Dewiswch ffeil i'w huwchlwytho fel eich dogfen adnabod â llun. Ni ddylai'r ffeil fod yn wag.
+uploadFile.error.size = Rhaid i'r ffeil a ddewisir fod yn llai na 100MB
+uploadFile.checkYourAnswersLabel = Dogfen adnabod â llun
+uploadFile.change.hidden = dogfen adnabod â llun

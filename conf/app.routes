@@ -84,3 +84,8 @@ GET        /whatNationality                        controllers.WhatNationalityCo
 POST       /whatNationality                        controllers.WhatNationalityController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatNationality                  controllers.WhatNationalityController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatNationality                  controllers.WhatNationalityController.onSubmit(mode: Mode = CheckMode)
+
+GET         /uploadFile                                  controllers.UploadFileController.onPageLoad(mode: Mode = NormalMode)
+POST        /uploadFile                                  controllers.UploadFileController.onSubmit(mode: Mode = NormalMode)
+GET         /changeUploadFile                            controllers.UploadFileController.onPageLoad(mode: Mode = CheckMode)
+POST        /changeUploadFile                            controllers.UploadFileController.onSubmit(mode: Mode = CheckMode)
